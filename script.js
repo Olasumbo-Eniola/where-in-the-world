@@ -16,7 +16,7 @@ const countriesAPI = ()=>{
          output +=  `
                     <li>
                     <img src="${country.flags.png}"/>
-                    <h2>${country.name}</h2>
+                    <h2 class="countryName">${country.name}</h2>
                     <h4>Population <span>${country.population}</span></h4>
                     <h4 class="regionName">Region <span>${country.region}</span></h4>
                     <h4>Capital <span>${country.capital}</span></h4>
@@ -31,28 +31,20 @@ const countriesAPI = ()=>{
 countriesAPI();
 
 // GET SINGLE COUNTRY FROM SEARCH BAR {FILTER}
-filteredCountry.addEventListener('keyup',()=>{
-   fetch(`https://restcountries.com/v2/name/${filteredCountry.value}`).then((response)=>{
-      return response.json()
-   }).then((data)=>{
-      console.log(data)
-      let output =''
-      data.forEach((filteredItem)=>{
-            output +=  `
-                    <li>
-                    <img src="${filteredItem.flags.png}"/>
-                    <h2>${filteredItem.name}</h2>
-                    <h4>Population <span>${filteredItem.population}</span></h4>
-                    <h4>Region <span>${filteredItem.region}</span></h4>
-                    <h4>Capital <span>${filteredItem.capital}</span></h4>
-                    </li>
-                    `
 
-      })
-      countries.innerHTML=output;  
-     
-   })
-})
+const countrySearchName = document.getElementsByClassName('countryName');
+       filteredCountry.addEventListener('keyup',()=>{
+              console.log(filteredCountry.value.toLowerCase())
+                 Array.from(countrySearchName).forEach((elem)=>{
+                 if(elem.innerText.toLowerCase().includes(filteredCountry.value.toLowerCase())){
+                    elem.parentElement.style.display="grid"
+                 }else{
+                    elem.parentElement.style.display="none"
+                 }
+                })
+               })
+
+
 
 
 
@@ -96,3 +88,5 @@ fetch(APIurl).then((response)=>{
 //      console.log(i)
 //   })
 })
+
+
