@@ -1,6 +1,6 @@
 const countries = document.querySelector('.countries');
 const filteredCountry = document.querySelector('.search');
-const toggleBtn = document.querySelector('.fa-chevron-down');
+const toggleBtn = document.querySelector('.show-drop-down');
 const regionSelection = document.querySelector('.drop-down');
 // const searchByRegion = document.querySelector('.region');
 const APIurl ='https://restcountries.com/v2/all';
@@ -52,6 +52,8 @@ const countrySearchName = document.getElementsByClassName('countryName');
 toggleBtn.addEventListener('click',()=>{
    regionSelection.classList.toggle('toggle');
 })
+
+
 
 // GET SELECTED REGIONS DISPLAY
 const regionName = document.getElementsByClassName('regionName');
