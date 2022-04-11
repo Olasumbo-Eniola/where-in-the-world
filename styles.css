@@ -109,16 +109,20 @@ ul li {
   margin-bottom: 40px;
   padding-bottom: 40px;
   position: relative;
-  z-index: -1;
+  /* z-index: -1; */
 }
-ul li h2 {
+ul li  {
+  text-decoration: none;
+  color: black;
+}
+ul li  h2 {
   margin: 15px 0 15px 0;
 }
-ul li h4 span {
+ul li  h4 span {
   font-weight: normal;
 }
-ul li h2,
-ul li h4 {
+ul li  h2,
+ul li  h4 {
   padding: 0 15px;
 }
 ul li img {
@@ -127,6 +131,9 @@ ul li img {
   object-fit: cover;
 }
 
+.modal-container{
+  display: none;
+}
 @media screen and (max-width: 912px) {
   main ul.countries {
     grid-template-columns: repeat(auto-fit, minmax(32%, 1fr));
